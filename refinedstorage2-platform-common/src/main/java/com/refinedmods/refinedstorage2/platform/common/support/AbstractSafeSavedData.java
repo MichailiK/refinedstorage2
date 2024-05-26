@@ -28,7 +28,7 @@ public abstract class AbstractSafeSavedData extends SavedData {
         NbtUtils.addCurrentDataVersion(compoundTag);
         try {
             // Write to temp file first.
-            NbtIo.writeCompressed(compoundTag, tempFile);
+            NbtIo.writeCompressed(compoundTag, tempFile.toFile()); // TODO backport to 1.20.1 - is the .toFile() correct?
             // Try atomic move
             try {
                 Files.move(tempFile, targetPath, StandardCopyOption.ATOMIC_MOVE);

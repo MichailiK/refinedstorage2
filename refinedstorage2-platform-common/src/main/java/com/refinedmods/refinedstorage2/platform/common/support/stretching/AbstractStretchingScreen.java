@@ -144,12 +144,12 @@ public abstract class AbstractStretchingScreen<T extends AbstractBaseContainerMe
     }
 
     @Override
-    public boolean mouseScrolled(final double x, final double y, final double z, final double delta) {
+    public boolean mouseScrolled(final double x, final double y, final double delta) {
         final boolean didScrollbar = scrollbar != null
             && !hasShiftDown()
             && !hasControlDown()
-            && scrollbar.mouseScrolled(x, y, z, delta);
-        return didScrollbar || super.mouseScrolled(x, y, z, delta);
+            && scrollbar.mouseScrolled(x, y, delta);
+        return didScrollbar || super.mouseScrolled(x, y, delta);
     }
 
     private int calculateVisibleRows() {

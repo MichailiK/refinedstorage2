@@ -180,11 +180,13 @@ public class PlatformApiImpl implements PlatformApi {
             return clientStorageRepository;
         }
         final ServerLevel serverLevel = Objects.requireNonNull(level.getServer().getLevel(Level.OVERWORLD));
-        return serverLevel.getDataStorage().computeIfAbsent(new SavedData.Factory<>(
-            this::createStorageRepository,
-            this::createStorageRepository,
-            null
-        ), StorageRepositoryImpl.NAME);
+        return serverLevel
+                .getDataStorage()
+                .computeIfAbsent(
+                        this::createStorageRepository,
+                        this::createStorageRepository,
+                        StorageRepositoryImpl.NAME
+                );
     }
 
     @Override

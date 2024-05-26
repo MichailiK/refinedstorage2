@@ -21,10 +21,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
-import net.minecraft.world.item.crafting.RecipeHolder;
 
-class CraftingGridRecipeTransferHandler implements
-    IRecipeTransferHandler<CraftingGridContainerMenu, RecipeHolder<CraftingRecipe>> {
+class CraftingGridRecipeTransferHandler implements IRecipeTransferHandler<CraftingGridContainerMenu, CraftingRecipe> {
     @Override
     public Class<? extends CraftingGridContainerMenu> getContainerClass() {
         return CraftingGridContainerMenu.class;
@@ -36,14 +34,14 @@ class CraftingGridRecipeTransferHandler implements
     }
 
     @Override
-    public RecipeType<RecipeHolder<CraftingRecipe>> getRecipeType() {
+    public RecipeType<CraftingRecipe> getRecipeType() {
         return RecipeTypes.CRAFTING;
     }
 
     @Override
     @Nullable
     public IRecipeTransferError transferRecipe(final CraftingGridContainerMenu containerMenu,
-                                               final RecipeHolder<CraftingRecipe> recipe,
+                                               final CraftingRecipe recipe,
                                                final IRecipeSlotsView recipeSlots,
                                                final Player player,
                                                final boolean maxTransfer,

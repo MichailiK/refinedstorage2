@@ -13,7 +13,6 @@ public class FabricPortableGridBlockEntity extends AbstractPortableGridBlockEnti
         super(type, pos, state);
     }
 
-    @Override
     @Nullable
     public Object getRenderData() {
         return disk;

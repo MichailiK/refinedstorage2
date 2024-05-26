@@ -133,7 +133,7 @@ public class ScrollbarWidget extends AbstractWidget {
     }
 
     @Override
-    public boolean mouseScrolled(final double x, final double y, final double z, final double delta) {
+    public boolean mouseScrolled(final double x, final double y, final double delta) {
         if (enabled) {
             final int scrollDirection = Math.max(Math.min(-(int) delta, 1), -1);
             if (smoothScrolling) {

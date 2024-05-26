@@ -290,7 +290,7 @@ public final class PlatformImpl extends AbstractPlatform {
         final boolean canPlace = blockState.isAir()
             || replaceable
             || (block instanceof LiquidBlockContainer lbc
-            && lbc.canPlaceLiquid(player, level, pos, blockState, content));
+            && lbc.canPlaceLiquid(level, pos, blockState, content));
         if (!canPlace || blockState.getFluidState().isSource()) {
             return false;
         } else if (block instanceof LiquidBlockContainer lbc && content == Fluids.WATER) {

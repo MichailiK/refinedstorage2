@@ -81,7 +81,8 @@ public class CustomCheckboxWidget extends AbstractButton {
         }
         final int x = getX() + BOX_SIZE + 4;
         final int y = (getY() + (height >> 1)) - (9 >> 1);
-        graphics.blitSprite(sprite, getX(), getY(), BOX_SIZE, BOX_SIZE);
+        // TODO backport to 1.20.1 - not sure if this screws up anything :))))
+        // graphics.blitSprite(sprite, getX(), getY(), BOX_SIZE, BOX_SIZE);
         graphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
         graphics.drawString(font, getMessage(), x, y, 4210752, false);
     }

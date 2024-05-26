@@ -1,4 +1,4 @@
-gradle.ext.refinedArchitectVersion = "0.12.1"
+gradle.ext.refinedArchitectVersion = "0.10.0"
 
 dependencyResolutionManagement {
     repositories {
@@ -36,7 +36,7 @@ include 'refinedstorage2-network-api'
 include 'refinedstorage2-network'
 include 'refinedstorage2-platform-api'
 include 'refinedstorage2-platform-fabric'
-include 'refinedstorage2-platform-forge'
+//include 'refinedstorage2-platform-forge'
 include 'refinedstorage2-platform-common'
 include 'refinedstorage2-platform-test'
 include 'refinedstorage2-network-test'

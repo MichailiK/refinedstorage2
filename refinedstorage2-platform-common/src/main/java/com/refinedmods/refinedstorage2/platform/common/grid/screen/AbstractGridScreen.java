@@ -427,7 +427,7 @@ public abstract class AbstractGridScreen<T extends AbstractGridContainerMenu> ex
     }
 
     @Override
-    public boolean mouseScrolled(final double x, final double y, final double z, final double delta) {
+    public boolean mouseScrolled(final double x, final double y, final double delta) {
         final boolean up = delta > 0;
 
         if (isOverStorageArea((int) x, (int) y)) {
@@ -439,7 +439,7 @@ public abstract class AbstractGridScreen<T extends AbstractGridContainerMenu> ex
             mouseScrolledInInventory(up, hoveredSlot);
         }
 
-        return super.mouseScrolled(x, y, z, delta);
+        return super.mouseScrolled(x, y, delta);
     }
 
     private void mouseScrolledInInventory(final boolean up, final Slot slot) {

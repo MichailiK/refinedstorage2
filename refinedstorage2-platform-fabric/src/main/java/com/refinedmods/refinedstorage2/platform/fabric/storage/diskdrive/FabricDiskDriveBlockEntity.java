@@ -12,7 +12,6 @@ public class FabricDiskDriveBlockEntity extends AbstractDiskDriveBlockEntity {
         super(pos, state);
     }
 
-    @Override
     @Nullable
     public Object getRenderData() {
         return disks;

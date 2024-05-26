@@ -87,7 +87,7 @@ public abstract class AbstractBaseScreen<T extends AbstractContainerMenu> extend
 
     @Override
     public void render(final GuiGraphics graphics, final int mouseX, final int mouseY, final float delta) {
-        renderBackground(graphics, mouseX, mouseY, delta);
+        renderBackground(graphics);
         super.render(graphics, mouseX, mouseY, delta);
         renderTooltip(graphics, mouseX, mouseY);
     }

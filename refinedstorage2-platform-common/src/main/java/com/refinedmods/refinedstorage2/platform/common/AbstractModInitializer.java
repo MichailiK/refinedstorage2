@@ -73,21 +73,8 @@ import com.refinedmods.refinedstorage2.platform.common.storage.diskdrive.DiskDri
 import com.refinedmods.refinedstorage2.platform.common.storage.diskdrive.DiskDriveContainerMenu;
 import com.refinedmods.refinedstorage2.platform.common.storage.externalstorage.ExternalStorageBlockEntity;
 import com.refinedmods.refinedstorage2.platform.common.storage.externalstorage.ExternalStorageContainerMenu;
-import com.refinedmods.refinedstorage2.platform.common.storage.portablegrid.AbstractPortableGridBlockEntity;
-import com.refinedmods.refinedstorage2.platform.common.storage.portablegrid.PortableGridBlock;
-import com.refinedmods.refinedstorage2.platform.common.storage.portablegrid.PortableGridBlockContainerMenu;
-import com.refinedmods.refinedstorage2.platform.common.storage.portablegrid.PortableGridItemContainerMenu;
-import com.refinedmods.refinedstorage2.platform.common.storage.portablegrid.PortableGridLootItemFunction;
-import com.refinedmods.refinedstorage2.platform.common.storage.portablegrid.PortableGridType;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.FluidStorageBlock;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.FluidStorageBlockBlockEntity;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.FluidStorageBlockBlockItem;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.FluidStorageBlockContainerMenu;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.ItemStorageBlock;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.ItemStorageBlockBlockEntity;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.ItemStorageBlockBlockItem;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.ItemStorageBlockContainerMenu;
-import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.StorageBlockLootItemFunction;
+import com.refinedmods.refinedstorage2.platform.common.storage.portablegrid.*;
+import com.refinedmods.refinedstorage2.platform.common.storage.storageblock.*;
 import com.refinedmods.refinedstorage2.platform.common.storage.storagedisk.FluidStorageDiskItem;
 import com.refinedmods.refinedstorage2.platform.common.storage.storagedisk.ItemStorageDiskItem;
 import com.refinedmods.refinedstorage2.platform.common.storagemonitor.FluidStorageMonitorExtractionStrategy;
@@ -102,6 +89,7 @@ import com.refinedmods.refinedstorage2.platform.common.support.NetworkNodeBlockI
 import com.refinedmods.refinedstorage2.platform.common.support.SimpleBlock;
 import com.refinedmods.refinedstorage2.platform.common.support.SimpleItem;
 import com.refinedmods.refinedstorage2.platform.common.support.energy.EnergyLootItemFunction;
+import com.refinedmods.refinedstorage2.platform.common.support.energy.EnergyLootItemFunctionSerializer;
 import com.refinedmods.refinedstorage2.platform.common.support.network.BaseNetworkNodeContainerBlockEntity;
 import com.refinedmods.refinedstorage2.platform.common.support.network.bounditem.InventorySlotReferenceFactory;
 import com.refinedmods.refinedstorage2.platform.common.support.network.component.PlatformStorageNetworkComponent;
@@ -761,15 +749,15 @@ public abstract class AbstractModInitializer {
     protected final void registerLootFunctions(final RegistryCallback<LootItemFunctionType> callback) {
         LootFunctions.INSTANCE.setStorageBlock(callback.register(
             STORAGE_BLOCK,
-            () -> new LootItemFunctionType(Codec.unit(new StorageBlockLootItemFunction()))
+            () -> new LootItemFunctionType(new StorageBlockLootItemFunctionSerializer())
         ));
         LootFunctions.INSTANCE.setPortableGrid(callback.register(
             PORTABLE_GRID,
-            () -> new LootItemFunctionType(Codec.unit(new PortableGridLootItemFunction()))
+            () -> new LootItemFunctionType(new PortableGridLootItemFunctionSerializer())
         ));
         LootFunctions.INSTANCE.setEnergy(callback.register(
             createIdentifier("energy"),
-            () -> new LootItemFunctionType(Codec.unit(new EnergyLootItemFunction()))
+            () -> new LootItemFunctionType(new EnergyLootItemFunctionSerializer())
         ));
     }
 
